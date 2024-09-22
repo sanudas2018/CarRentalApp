@@ -72,8 +72,9 @@ return [
     | and the user is authenticated. You are free to change this value.
     |
     */
-
-    'home' => '/dashboard',
+    
+    // Change dashboard to home
+    'home' => '/home',
 
     /*
     |--------------------------------------------------------------------------
