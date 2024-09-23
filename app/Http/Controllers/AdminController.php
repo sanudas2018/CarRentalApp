@@ -22,4 +22,9 @@ class AdminController extends Controller
             }
         }
     }
+
+    // Front End Home page 
+    public function home(){
+        return view('FrontEnd.home.index');
+    }
 }

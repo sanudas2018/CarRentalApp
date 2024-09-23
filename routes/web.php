@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// ========= (Front End) =========
+// Home Route
+route::get('/', [AdminController::class, 'home']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 route::get('/home',[AdminController::class,'index'])->name('home');
