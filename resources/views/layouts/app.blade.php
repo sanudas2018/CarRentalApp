@@ -12,14 +12,14 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- My Template File -->
-    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" />
     <link href="{{asset('css/animate.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/fontawesome.css')}}" rel="stylesheet" />
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('css/toastify.min.css')}}" rel="stylesheet" />
     <script src="{{asset('js/toastify-js.js')}}"></script>
     <script src="{{asset('js/axios.min.js')}}"></script>
-    <script src="{{asset('js/config.js')}}"></script>
+    <script src="{{asset('js/config.js')}}"></script> -->
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -30,7 +30,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->

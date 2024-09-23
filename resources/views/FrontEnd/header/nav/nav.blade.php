@@ -55,14 +55,33 @@
                                 <a href="booking.html" class="dropdown-item">Car Booking</a>
                             </div>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="team.html" class="dropdown-item">The Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
+
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+
+
+<!-- Use Condition - User login না থাকলে এখানে login/register দেখাবে আর login থাকলে user দেখাবে -->
+                        @if (Route::has('login'))
+                        
+                            @auth
+                            <x-app-layout>
+
+                            </x-app-layout>
+
+
+                            @else
+
+                            <a href="{{url('login')}}" class="nav-item nav-link active">Login</a>
+
+                            @if (Route::has('register'))
+
+                            <a href="{{url('register')}}" class="nav-item nav-link active">Register</a>
+
+                            @endif
+                            @endauth
+                        
+                        @endif
+
+
                     </div>
                 </div>
             </nav>

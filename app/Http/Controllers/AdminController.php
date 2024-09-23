@@ -12,8 +12,10 @@ class AdminController extends Controller
         if (Auth::id()) {
 
             $userRole = Auth()->user()->role;
+
             if ($userRole == 'customer') {
-                return view('dashboard');
+                // User সব সময়ে index এ থাকবে 
+                return view('FrontEnd.home.index');
             } else if ($userRole == 'admin') {
                 return view('admin.index');
             }
