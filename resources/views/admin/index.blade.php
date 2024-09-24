@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
-        </h2>
-    </x-slot>
+<!-- All Css link -->
+@include('Admin.header.cssLinkAdmin')
 
-   
-</x-app-layout>
+<!-- Header Section Start -->
+@include('Admin.header.NavAdmin')
+<!-- Header Section End -->
+<div class="d-flex align-items-stretch">
+  <!-- Sidebar Navigation-->
+  @include('Admin.Header.SideNav')
+  <!-- Sidebar Navigation end-->
 
-    
-</body>
-</html>
+  <!-- Main Dashboard Body Start -->
+  @include('Admin.Dashboard.MainBody')
+  <!-- Main Dashboard Body End -->
+</div>
+
+<!-- Footer Section Start -->
+<!-- JavaScript files-->
+
+@include('Admin.Footer.FooterAdmin')
+
+<!-- Footer Section End -->
