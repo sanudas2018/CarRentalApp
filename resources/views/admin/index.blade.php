@@ -1,5 +1,5 @@
 <!-- All Css link -->
-@include('Admin.header.cssLinkAdmin')
+@include('Admin.header.HeaderFooter')
 
 <!-- Header Section Start -->
 @include('Admin.header.NavAdmin')

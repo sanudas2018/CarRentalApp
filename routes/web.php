@@ -19,3 +19,12 @@ route::get('/', [AdminController::class, 'home']);
 
 
 route::get('/home',[AdminController::class,'index'])->name('home');
+
+// Admin
+// Front End
+route::get('/create_car',[AdminController::class,'CarPage']);
+
+// Admin Control:
+// Back End 
+
+route::post('/createCar',[AdminController::class,'CreateCar']);

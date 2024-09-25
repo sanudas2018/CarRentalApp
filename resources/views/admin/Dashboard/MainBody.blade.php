@@ -25,7 +25,7 @@
 
 
     <!-- New User List Start -->
-    @include('admin.Dashboard.NewUserList')
+    <!-- @include('admin.Dashboard.NewUserList') -->
     <!-- New User List End -->
     <footer class="footer">
         <div class="footer__block block no-margin-bottom">
