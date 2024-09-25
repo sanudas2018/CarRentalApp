@@ -14,10 +14,14 @@
                 <table class="table" id="tableData">
                     <thead>
                         <tr class="bg-light">
-                            <th>Image</th>
+                            <th>NO</th>
                             <th>Name</th>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Type</th>
                             <th>Price</th>
-                            <th>Unit</th>
+                            <th>Available</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>

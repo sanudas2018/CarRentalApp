@@ -11,7 +11,7 @@ class Cars extends Model
     protected $fillable = [
         'name',
         'brand',
-        'model',
+        'car_model',
         'year',
         'car_type',
         'daily_rent_price',

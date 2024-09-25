@@ -5,7 +5,8 @@
                 <h5 class="modal-title" id="exampleModalLabel">Create Product</h5>
             </div>
             <div class="modal-body">
-                <form id="save-form" action="{{ url('createCar') }}" method="POST" enctype="multipart/form-data">
+                <!-- action="{{ url('createCar') }}" method="POST" enctype="multipart/form-data" -->
+                <form id="save-form">
                     @csrf
                     <div class="container">
                         <div class="row mb-4">
@@ -71,21 +72,26 @@
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" id="image" name="image" required>
                                 </div>
+                                <!-- <img class="w-15" id="image" src="{{asset('Admin/img/default.jpg')}}" />
+                                <br />
+
+                                <label class="form-label">Image</label>
+                                <input oninput="image.src=window.URL.createObjectURL(this.files[0])" type="file" class="form-control" id="image"> -->
 
 
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <!-- <div class="modal-footer">
                         <button id="modal-close" class="btn bg-gradient-primary mx-2" data-bs-dismiss="modal" aria-label="Close">Close</button>
                         <input type="submit" id="save-btn" class="btn bg-gradient-success"></input>
-                    </div>
+                    </div> -->
                 </form>
             </div>
-            <!-- <div class="modal-footer">
+            <div class="modal-footer">
                 <button id="modal-close" class="btn bg-gradient-primary mx-2" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                <button type="submit" id="save-btn" class="btn bg-gradient-success">Save</button>
-            </div> -->
+                <button onclick="Save()" id="save-btn" class="btn bg-gradient-success">Save</button>
+            </div>
         </div>
     </div>
 </div>
@@ -103,49 +109,53 @@
     // }
 
 
-    // async function Save() {
+    async function Save() {
 
-    //     let carName = document.getElementById('carName').value;
-    //     let brand = document.getElementById('brand').value;
-    //     let model = document.getElementById('model').value;
-    //     let year = document.getElementById('year').value;
-    //     let carType = document.getElementById('carType').value;
-    //     let rentPrice = document.getElementById('rentPrice').value;
-    //     let availability = document.getElementById('availability').value;
+        let carName = document.getElementById('name').value;
+        let brand = document.getElementById('brand').value;
+        let model = document.getElementById('model').value;
+        let year = document.getElementById('year').value;
+        let carType = document.getElementById('car_type').value;
+        let rentPrice = document.getElementById('daily_rent_price').value;
+        let availability = document.getElementById('availability').value;
 
-    //     let carImg = document.getElementById('carImg').files[0];
-
-
+        let image = document.getElementById('image').files[0];
 
 
-    //         document.getElementById('modal-close').click();
 
-    //         let formData = new FormData();
-    //         formData.append('name', carName)
-    //         formData.append('brand', brand)
-    //         formData.append('model', model)
-    //         formData.append('year', year)
-    //         formData.append('car_type', carType)
-    //         formData.append('daily_rent_price', rentPrice)
-    //         formData.append('availability', availability)
-    //         formData.append('image', carImg)
+        if (model.length === 0) {
+            // console.log(carName)
+            errorToast("carName Required !");
+        }
+        document.getElementById('modal-close').click();
 
-    //         const config = {
-    //             headers: {
-    //                 'content-type': 'multipart/form-data'
-    //             }
-    //         }
-    //         // console.log(formData)
-    //         showLoader();
-    //         let res = await axios.post("/createCare", formData, config)
-    //         hideLoader();
+        let formData = new FormData();
+        formData.append('name', carName)
+        formData.append('brand', brand)
+        formData.append('model', model)
+        formData.append('year', year)
+        formData.append('car_type', carType)
+        formData.append('daily_rent_price', rentPrice)
+        formData.append('availability', availability)
+        formData.append('image', image)
 
-    //         if (res.status === 201) {
-    //             successToast('Request completed');
-    //             document.getElementById("save-form").reset();
-    //             // await getList();
-    //         } else {
-    //             errorToast("Request fail !")
-    //         }
-    //     }
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        showLoader();
+        let res = await axios.post("/createCar", formData, config)
+        // return console.log(res);
+        hideLoader();
+
+        if (res.status === 201) {
+            successToast('Request completed');
+            document.getElementById("save-form").reset();
+            // await getList();
+        } else {
+            errorToast("Request fail !")
+        }
+    }
 </script>
