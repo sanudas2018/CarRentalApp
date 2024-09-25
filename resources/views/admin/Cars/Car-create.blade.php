@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Product</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Car</h5>
             </div>
             <div class="modal-body">
                 <!-- action="{{ url('createCar') }}" method="POST" enctype="multipart/form-data" -->
@@ -68,15 +68,15 @@
                                 </div>
 
                                 <br />
-                                <label for="image" class="col-sm-2 col-form-label">Car Image</label>
+                                <!-- <label for="image" class="col-sm-2 col-form-label">Car Image</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" id="image" name="image" required>
-                                </div>
-                                <!-- <img class="w-15" id="image" src="{{asset('Admin/img/default.jpg')}}" />
+                                </div> -->
+                                <img class="w-20" id="images" src="{{asset('Admin/img/default.jpg')}}" />
                                 <br />
 
                                 <label class="form-label">Image</label>
-                                <input oninput="image.src=window.URL.createObjectURL(this.files[0])" type="file" class="form-control" id="image"> -->
+                                <input oninput="images.src=window.URL.createObjectURL(this.files[0])" type="file" class="form-control" id="image">
 
 
                             </div>

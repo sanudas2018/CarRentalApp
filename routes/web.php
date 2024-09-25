@@ -22,7 +22,7 @@ route::get('/home',[AdminController::class,'index'])->name('home');
 
 // Admin
 // Front End
-route::get('/create_car',[AdminController::class,'CarPage']);
+route::get('/create_car_page',[AdminController::class,'CarPage']);
 
 // Admin Control:
 // Back End 
