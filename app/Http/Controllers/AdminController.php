@@ -98,7 +98,9 @@ class AdminController extends Controller
 
     }
 
-    // function CarList(Request, $request){
-    //     return Cars::where()
-    // }
+    public function CarList(){
+        $data = Cars::all();
+        return view('admin.Cars.Car-list', compact('data'));
+
+    }
 }

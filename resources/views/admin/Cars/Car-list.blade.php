@@ -15,13 +15,13 @@
                     <thead>
                         <tr class="bg-light">
                             <th>NO</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Brand</th>
-                            <th>Model</th>
+                           
                             <th>Type</th>
                             <th>Price</th>
                             <th>Available</th>
-                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -35,34 +35,37 @@
 </div>
 
 <script>
-    // getList();
+    getList();
 
 
     async function getList() {
 
-        // showLoader();
-        // let res = await axios.get("/list-product");
-        // hideLoader();
+        showLoader();
+        let res = await axios.get("/carListing");
+        hideLoader();
 
         let tableList = $("#tableList");
         let tableData = $("#tableData");
 
-        // tableData.DataTable().destroy();
-        // tableList.empty();
+        tableData.DataTable().destroy();
+        tableList.empty();
 
-        // res.data.forEach(function(item, index) {
-        //     let row = `<tr>
-        //             <td><img class="w-15 h-auto" alt="" src="${item['img_url']}"></td>
-        //             <td>${item['name']}</td>
-        //             <td>${item['price']}</td>
-        //             <td>${item['unit']}</td>
-        //             <td>
-        //                 <button data-path="${item['img_url']}" data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
-        //                 <button data-path="${item['img_url']}" data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
-        //             </td>
-        //          </tr>`
-        //     tableList.append(row)
-        // })
+        res.allCars.forEach(function(item, index) {
+            let row = `<tr>
+                    <td><img class="w-15 h-auto" alt="" src="${item['image']}"></td>
+                    <td>${item['name']}</td>
+                    <td>${item['brand']}</td>
+                    <td>${item['daily_rent_price']}</td>
+                    <td>${item['car_type']}</td>
+                    <td>${item['availability']}</td>
+                   
+                    <td>
+                        <button data-path="${item['image']}" data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
+                        <button data-path="${item['image']}" data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
+                    </td>
+                 </tr>`
+            tableList.append(row)
+        })
 
         // $('.editBtn').on('click', async function() {
         //     let id = $(this).data('id');
