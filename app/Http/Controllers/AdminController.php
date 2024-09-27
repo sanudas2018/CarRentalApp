@@ -31,10 +31,15 @@ class AdminController extends Controller
         return view('FrontEnd.home.index');
     }
 
-    // Crate Car
+    // Front end 
+    // Crate Car Page
     public function CarPage()
     {
-        return view('admin.createCar');
+        return view('admin.createCarPage');
+    }
+    public function CarListPage()
+    {
+        return view('admin.CarListPage');
     }
 
 
@@ -53,7 +58,7 @@ class AdminController extends Controller
                 $file_name = $img->getClientOriginalName();
 
                 $img_name = "{$t}-{$file_name}";
-                $img_url = "uploads/{$img_name}";
+                $img_url = "{$img_name}";
                 // Upload File
                 $img->move(public_path('uploads'), $img_name);
             }
@@ -77,30 +82,20 @@ class AdminController extends Controller
             return response()->json($th->getMessage(), 200);
         }
 
-        // $data = new Cars;
-        // $data -> name = $request -> name;
-        // $data -> brand = $request -> brand;
-        // $data -> car_model = $request -> model;
-        // $data -> year = $request -> year;
-        // $data -> car_type = $request -> car_type;
-        // $data -> daily_rent_price = $request -> daily_rent_price;
-        // $data -> availability = $request -> availability;
 
-        // $image = $request -> image;
-        // if($image){
-        //     $imageName = time().'.'.$image->getClientOriginalName();
-        //     $request->image->move('uploads',$imageName);
-        //     $data-> image = $imageName;
-        // }
-
-        // $data->save();
-        // return redirect()->back();
 
     }
 
     public function CarList(){
-        $data = Cars::all();
-        return view('admin.Cars.Car-list', compact('data'));
+        $allData = Cars::all();
+        return view('admin.CarListPage', compact('allData'));
+
+    }
+
+    public function carDelete($id){
+       $data = Cars::find($id);
+       $data -> delete();
+       return redirect()->back();
 
     }
 }

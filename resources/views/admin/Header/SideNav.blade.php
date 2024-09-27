@@ -14,7 +14,7 @@
     <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Car Manage</a>
       <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
         <li><a href="{{url('car_page')}}">Add Cars</a></li>
-        <li><a href="#">Page</a></li>
+        <li><a href="{{url('CarListPage')}}">Car List</a></li>
         <li><a href="#">Page</a></li>
       </ul>
     </li>

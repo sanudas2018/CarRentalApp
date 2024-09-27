@@ -1,10 +1,4 @@
-<div class="modal animated zoomIn" id="create-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Car</h5>
-            </div>
-            <div class="modal-body">
+
                 <!-- action="{{ url('createCar') }}" method="POST" enctype="multipart/form-data" -->
                 <form id="save-form">
                     @csrf
@@ -82,31 +76,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
-                        <button id="modal-close" class="btn bg-gradient-primary mx-2" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                        <input type="submit" id="save-btn" class="btn bg-gradient-success"></input>
-                    </div> -->
+                   
                 </form>
+                <div class="">
+                    <button id="modal-close" class="btn bg-gradient-primary mx-2" aria-label="Close">Close</button>
+                    <button onclick="Save()" id="save-btn" class="btn bg-gradient-success">Save</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button id="modal-close" class="btn bg-gradient-primary mx-2" data-bs-dismiss="modal" aria-label="Close">Close</button>
-                <button onclick="Save()" id="save-btn" class="btn bg-gradient-success">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
 
+
+ 
 
 <script>
-    // FillCategoryDropDown();
-
-    // async function FillCategoryDropDown() {
-    //     let res = await axios.get("/list-category")
-    //     res.data.forEach(function(item, i) {
-    //         let option = `<option value="${item['id']}">${item['name']}</option>`
-    //         $("#productCategory").append(option);
-    //     })
-    // }
+    
 
 
     async function Save() {
