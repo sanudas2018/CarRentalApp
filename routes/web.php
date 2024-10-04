@@ -45,5 +45,17 @@ route::get('/car_details/{id}',[FrontendController::class,'CarDetails']);
 // room booking 
 route::post('/add_booking/{id}',[FrontendController::class,'add_booking']);
 
+// Admin Panel
+route::get('/bookings',[AdminController::class,'bookings']);
+
+// Booking delete
+route::get('/booking_delete/{id}',[AdminController::class,'booking_delete']);
+
+// approved / rejected
+route::get('/booking_approve/{id}',[AdminController::class,'booking_approve']);
+route::get('/booking_rejected/{id}',[AdminController::class,'booking_rejected']);
+
+
+
 
 

@@ -46,9 +46,11 @@
                                 </tr>
                             </thead>
                             <tbody id="tableList">
+                            <?php $i = 1; ?>
                                 @foreach ($allData as $data )
                                 <tr>
-                                    <td>1</td>
+                                    <td><?php echo $i;
+                        $i++; ?></td>
                                     <td><img class="w-50 h-auto" alt="" src="uploads/{{$data->image}}"></td>
                                     <td>{{$data->name}}</td>
                                     <td>{{$data->brand}}</td>

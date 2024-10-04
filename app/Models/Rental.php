@@ -16,4 +16,8 @@ class Rental extends Model
         'end_date',
         'total_cost'
     ];
+
+    public function car(){
+        return $this->hasOne('App\Models\Cars', 'id','car_id');
+    }
 }

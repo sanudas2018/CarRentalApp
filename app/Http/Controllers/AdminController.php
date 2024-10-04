@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cars;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +31,7 @@ class AdminController extends Controller
     public function home()
     {
         $cars = Cars::all();
+        
         return view('FrontEnd.home.index', compact('cars'));
     }
 
@@ -127,8 +129,32 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    // Booking page
+    public function bookings(){
+        $allData = Rental::all();
+        return view('admin.bookingPage', compact('allData'));
+    }
 
+    // Booking delete
+    public function booking_delete($id){
+        $data = Rental::find($id);
+        $data -> delete();
+        return redirect()->back();
+    }
 
+    // approved / rejected
+    public function booking_approve($id){
+        $booking = Rental::find($id);
+        $booking-> status ='approve';
+        $booking-> save();
+        return redirect()->back();
+    }
+    public function booking_rejected($id){
+        $booking = Rental::find($id);
+        $booking-> status ='rejected';
+        $booking-> save();
+        return redirect()->back();
+    }
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2024 at 10:20 PM
+-- Generation Time: Oct 04, 2024 at 10:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,7 +50,9 @@ INSERT INTO `cars` (`id`, `name`, `brand`, `car_model`, `year`, `car_type`, `dai
 (3, 'Toyota Fortuner', 'Toyota', 'Toyota 24', 2020, 'Sedan', 30000.00, 1, '1727281013.car-rent-5.png', '2024-09-25 10:16:53', '2024-09-25 10:16:53'),
 (4, 'Ferrari', 'Ferrari', 'Ferrari-224', 2022, 'Hatchback', 4000.00, 1, '1727281090.gallery-6.jpg', '2024-09-25 10:18:10', '2024-09-25 10:18:10'),
 (5, 'Audi - Q8', 'Audi', 'Audi -3393', 2023, 'SUV', 10000.00, 1, '1727281181.car-rent-6.png', '2024-09-25 10:19:41', '2024-09-25 10:19:41'),
-(6, 'Audi - YK', 'Audi', 'Audi - 553', 2018, 'SUV', 5000.00, 1, '1727281229.car-rent-4.png', '2024-09-25 10:20:29', '2024-09-25 10:20:29');
+(6, 'Audi - YK', 'Audi', 'Audi - 553', 2018, 'SUV', 5000.00, 1, '1727281229.car-rent-4.png', '2024-09-25 10:20:29', '2024-09-25 10:20:29'),
+(24, 'fsdfs', 'sfsd', 'sfsd', 2121, 'SUV', 232323.00, 0, '1727806984-car-rent-3.png', '2024-10-01 12:23:04', '2024-10-01 12:23:04'),
+(26, 'ROWEL2', 'ssww', 'xxxxx', 23, 'Hatchback', 232323.00, 0, '1727982888.jpg', '2024-10-02 12:18:12', '2024-10-03 13:14:48');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2019_08_19_000000_create_failed_jobs_table', 1),
 (11, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (12, '2024_09_22_182024_create_sessions_table', 1),
-(16, '2024_09_24_184454_create_cars_table', 2);
+(16, '2024_09_24_184454_create_cars_table', 2),
+(17, '2024_10_04_142634_create_rentals_table', 3),
+(18, '2024_10_04_183148_add_status_field_to_rentals', 4);
 
 -- --------------------------------------------------------
 
@@ -127,6 +131,35 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rentals`
+--
+
+CREATE TABLE `rentals` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `car_id` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'waiting',
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `total_cost` decimal(8,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `rentals`
+--
+
+INSERT INTO `rentals` (`id`, `car_id`, `name`, `email`, `phone`, `status`, `start_date`, `end_date`, `total_cost`, `created_at`, `updated_at`) VALUES
+(1, '3', 'user', 'user@gmail.com', '017', 'approve', '2024-10-05', '2024-10-11', 30000.00, '2024-10-04 11:41:32', '2024-10-04 14:11:52'),
+(2, '3', 'user', 'user@gmail.com', '017', 'rejected', '2024-10-10', '2024-10-11', 30000.00, '2024-10-04 11:51:14', '2024-10-04 14:17:47'),
+(5, '5', 'sanu', 'sanu.auko@gmail.com', '01955550465', 'waiting', '2024-10-30', '2024-10-31', 10000.00, '2024-10-04 14:30:17', '2024-10-04 14:30:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -144,8 +177,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('IU9UzNnLxdnkbrZwnYZgPo7MKxZhR4vs4oBdRvkC', 2, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiV09Sb1MyeVMza0RrMFFrS2RlYW02V3gzZmFzQXVJY0RRS2xiWUdRdCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9DYXJMaXN0UGFnZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1727468355),
-('KG2iAwNB84JcLNDVEzXrhUYzSLfurDnJAKQn4PiA', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiWXltSGpIWFJrZWgzc0RWdzFTSVZ1ZzNxaFlVQ2xVMWFwYXZpOU9yVCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1727458199);
+('aUpdYBr0FSy0AmdM7vcJQX7EVNTPYNskaViFfIjL', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOFIzcnNtRnEwRkFTSHZ4T093c2tmd2NuSFdUT09PenVPOHNFWnBybCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ob21lIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1728075299);
 
 -- --------------------------------------------------------
 
@@ -178,8 +210,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `role`, `address`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `email_verified_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
 (1, 'user', 'user@gmail.com', '017', 'customer', 'BD', '$2y$10$8nIuhOuAL.PaRXxfaHe/Ce8oWJsUn/qGe5VFyjCYoHe8YQ.0XUNwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-09-22 13:32:26', '2024-09-22 13:32:26'),
-(2, 'admin', 'admin@gmail.com', '016', 'admin', 'BD', '$2y$10$xxsN84uJlbDwyYLW64KbQeZPSA9ImhbIzbEfnntk1gbva5ZhtBS3e', NULL, NULL, NULL, NULL, 'PItVeoOfWD4ln1K9VKC8PiZUzwhoH9IBaVaKihTMRcn98J4OZagWfDzZUniR', NULL, NULL, '2024-09-22 13:33:57', '2024-09-27 18:05:00'),
-(3, 'user2', 'user2@gmail.com', '01777', 'customer', 'BD', '$2y$10$YE.DVlNKTdq2hep5y8KTduTlX1AsbaX67gfKSTThPa8nK5xzDRbym', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-09-23 13:57:53', '2024-09-23 13:57:53');
+(2, 'admin', 'admin@gmail.com', '016', 'admin', 'BD', '$2y$10$xxsN84uJlbDwyYLW64KbQeZPSA9ImhbIzbEfnntk1gbva5ZhtBS3e', NULL, NULL, NULL, NULL, 'rr93fj90ZtDqgF7TqP3tWBgqyL3TZ37UNZEUYWMbTdxiES5ehl6cGhjLz5By', NULL, NULL, '2024-09-22 13:33:57', '2024-10-04 20:32:57'),
+(3, 'user2', 'user2@gmail.com', '01777', 'customer', 'BD', '$2y$10$YE.DVlNKTdq2hep5y8KTduTlX1AsbaX67gfKSTThPa8nK5xzDRbym', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-09-23 13:57:53', '2024-09-23 13:57:53'),
+(4, 'sanu', 'sanu.auko@gmail.com', '01955550465', 'customer', 'BD', '$2y$10$86oE4UaFmhzeMuezIrzseuZQqUkV0.xa8iejP3a5YNBfIXJwhI.A.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-04 14:29:42', '2024-10-04 14:29:42');
 
 --
 -- Indexes for dumped tables
@@ -219,6 +252,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `rentals`
+--
+ALTER TABLE `rentals`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -241,7 +280,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -253,7 +292,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -262,10 +301,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `rentals`
+--
+ALTER TABLE `rentals`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
