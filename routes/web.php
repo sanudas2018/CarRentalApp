@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +27,23 @@ route::get('/CarListPage',[AdminController::class,'CarList']);
 
 route::post('/createCar',[AdminController::class,'CreateCar']);
 
-route::get('/car_delete/{if}',[AdminController::class,'carDelete']);
+route::get('/car_delete/{id}',[AdminController::class,'carDelete']);
 
+
+route::get('/carEditPage/{id}',[AdminController::class,'carUpdate']);
+
+
+
+route::post('/car_update/{id}',[AdminController::class,'CarUpdateSingle']);
+
+
+// Car details 
+
+route::get('/car_details/{id}',[FrontendController::class,'CarDetails']);
+
+
+// room booking 
+route::post('/add_booking/{id}',[FrontendController::class,'add_booking']);
 
 
 

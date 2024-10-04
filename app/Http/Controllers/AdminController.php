@@ -15,8 +15,9 @@ class AdminController extends Controller
             $userRole = Auth()->user()->role;
 
             if ($userRole == 'customer') {
+                $cars = Cars::all();
                 // User সব সময়ে index এ থাকবে 
-                return view('FrontEnd.home.index');
+                return view('FrontEnd.home.index', compact('cars'));
             } else if ($userRole == 'admin') {
                 return view('admin.index');
             } else {
@@ -28,7 +29,8 @@ class AdminController extends Controller
     // Front End Home page 
     public function home()
     {
-        return view('FrontEnd.home.index');
+        $cars = Cars::all();
+        return view('FrontEnd.home.index', compact('cars'));
     }
 
     // Front end 
@@ -98,4 +100,36 @@ class AdminController extends Controller
        return redirect()->back();
 
     }
+
+    public function carUpdate($id){
+        $data = Cars::find($id);
+        return view('admin.carUpdatePage', compact('data'));
+    }
+
+    public function CarUpdateSingle(Request $request, $id){
+        $data = Cars::find($id);
+        $data -> name = $request->name;
+        $data -> brand = $request->brand;
+        $data -> car_model = $request->model;
+        $data -> year = $request->year;
+        $data -> car_type = $request->car_type;
+        $data -> daily_rent_price = $request->daily_rent_price;
+        $data -> availability = $request->availability;
+
+        $image = $request -> image;
+        if($image){
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $request -> image ->move('uploads', $imageName);
+            $data->image=$imageName;
+        }
+
+        $data->save();
+        return redirect()->back();
+    }
+
+
+
+
+
+
 }

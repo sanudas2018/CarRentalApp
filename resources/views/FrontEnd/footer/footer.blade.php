@@ -28,22 +28,22 @@
                 <h4 class="text-uppercase text-light mb-4">Car Gallery</h4>
                 <div class="row mx-n1">
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-1.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-1.jpg')}}" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-2.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-2.jpg')}}" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-3.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-3.jpg')}}" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-4.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-4.jpg')}}" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-5.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-5.jpg')}}" alt=""></a>
                     </div>
                     <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="FrontEnd/img/gallery-6.jpg" alt=""></a>
+                        <a href=""><img class="w-100" src="{{asset('FrontEnd/img/gallery-6.jpg')}}" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -76,17 +76,17 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{asset('https://code.jquery.com/jquery-3.4.1.min.js')}}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="FrontEnd/lib/easing/easing.min.js"></script>
-    <script src="FrontEnd/lib/waypoints/waypoints.min.js"></script>
-    <script src="FrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="FrontEnd/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="FrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="FrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{asset('FrontEnd/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('FrontEnd/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('FrontEnd/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('FrontEnd/lib/tempusdominus/js/moment.min.js')}}"></script>
+    <script src="{{asset('FrontEnd/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
+    <script src="{{asset('FrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="FrontEnd/js/main.js"></script>
+    <script src="{{asset('FrontEnd/js/main.js')}}"></script>
 </body>
 
 </html>

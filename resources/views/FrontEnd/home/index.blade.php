@@ -20,7 +20,11 @@
 
 <!-- About End -->
 
+<!-- Rent A Car Start -->
+@include('FrontEnd.components.allCars.allCars')
 
+<!-- Rent A Car End -->
+ 
 <!-- Services Start -->
 @include('FrontEnd.components.Services.Services')
 
@@ -33,10 +37,7 @@
 <!-- Banner End -->
 
 
-<!-- Rent A Car Start -->
-@include('FrontEnd.components.allCars.allCars')
 
-<!-- Rent A Car End -->
 
 
 <!-- Team Start -->
